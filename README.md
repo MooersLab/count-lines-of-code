@@ -44,6 +44,55 @@ This is the code that you want to use most of the time:
 ```python
 print(sum(1 for line in open('init.el','r') if ((line.strip()) and (line[0] != ';') ) ) )
 ```
+## Limitations
+
+- # count-lines-of-code
+
+## Problem addressed
+Counts of lines of code generated are used or abused for many purposes.
+There is no standard way of making these counts.
+
+## Solution
+Use one-liner Python functions for counting lines of code in an external file of code.
+The code has no external dependencies.
+The code can be in any programming language.
+The examples below uses a file written in Elisp.
+The last example is the solution that you want most of the time.
+The bash function at the bottom can be available everywhere and all of the time.
+
+
+## Count number of non-blank lines
+
+Python3 one-liner to count number of non-blank lines follows. 
+This code will count the number of non-blank lines:
+
+```python
+print(sum(1 for line in open("init.el",'r') if line.strip()))
+```
+[Source](https://stackoverflow.com/questions/10673560/count-number-of-lines-in-a-txt-file-with-python-excluding-blank-lines)
+
+## Count number of commented lines
+
+Python3 one-liner to count number of lines that are commented out follows.
+The semicolon is used to comment out lines in Emacs Lisp.
+This function will miss those commented lines where the comment has been indented, so this function could be improved.
+
+```python
+print(sum(1 for line in open('init.el','r') if (line[0] ==  ';') ) )
+```
+
+## Count number of lines with uncommented code
+
+Python3 one-liner to count number of non-blank lines that are not commented out.
+This code overlooks block comments and indented  comment lines.
+There is room for improvement.
+
+This is the code that you want to use most of the time:
+
+```python
+print(sum(1 for line in open('init.el','r') if ((line.strip()) and (line[0] != ';') ) ) )
+```
+
 
 ##  More convenient bash function for last example
 
@@ -54,7 +103,11 @@ Examples of usage include:
 ```bash
 cntloc test.py \#
 cntloc init.el \;
+cntloc .bashFunctions \#
 cntloc rhoxyz.f \*
+cntloc ancientCode.f C
+cntloc learnjuia.jl \#
+cntloc my_model.stan  \/
 ```
 
 This function can be stored in a `.bashFunctions` file that is sourced when you open a new bash or zsh shell.
@@ -82,3 +135,7 @@ fi
 }
 ```
 
+## Limitations
+
+- Skips blocked comments
+- Skip comments on indented lines
