@@ -54,6 +54,7 @@ Examples of usage include:
 cntloc test.py \#
 cntloc init.el \;
 cntloc rhoxyz.f \*
+```
 
 This function can be stored in a .bashFunctions file that is sourced when you open a new bash or zsh shell.
 
