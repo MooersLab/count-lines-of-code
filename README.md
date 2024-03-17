@@ -58,9 +58,13 @@ cntloc test.py \#
 cntloc init.el \;
 cntloc .bashFunctions \#
 cntloc rhoxyz.f \*
+cntloc rhoxyz.f95 \!
 cntloc ancientCode.f C
 cntloc learnjuia.jl \#
 cntloc my_model.stan  \/
+cntloc testme.c \/
+cntloc test.cjl \;
+cntloc test.R \#
 ```
 
 This function can be stored in a `.bashFunctions` file that is sourced when you open a new bash or zsh shell.
@@ -95,5 +99,5 @@ fi
 
 ## Limitations
 
-- Skips blocked comments
+- Skips blocked comments in special comment environments (e.g., Python triple quoted blocks, html comment blocks, LaTeX comment blocks, comment blocks in C++).
 - Skip comments on indented lines
