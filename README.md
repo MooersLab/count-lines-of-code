@@ -6,6 +6,7 @@ There is no standard way of making these counts.
 
 ## Solution
 Use one-liner Python functions for counting lines of code in an external file of code.
+The code has no external dependencies.
 The code can be in any programming language.
 The examples below uses a file written in Elisp.
 The last example is the solution that you want most of the time.
