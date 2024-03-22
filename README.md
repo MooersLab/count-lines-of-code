@@ -1,3 +1,7 @@
+![version](https://img.shields.io/static/v1?label=count-lines-of-code&message=0.1&color=brightcolor)
+[![license: mit](https://img.shields.io/badge/license-mit-blue.svg)](https://opensource.org/licenses/mit)
+
+
 # count-lines-of-code
 
 ## Problem addressed
