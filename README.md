@@ -1,4 +1,4 @@
-![version](https://img.shields.io/static/v1?label=count-lines-of-code&message=0.1&color=brightcolor)
+![version](https://img.shields.io/static/v1?label=count-lines-of-code&message=0.2&color=brightcolor)
 [![license: mit](https://img.shields.io/badge/license-mit-blue.svg)](https://opensource.org/licenses/mit)
 
 
@@ -12,12 +12,13 @@ There is no standard way of making these counts.
 Use one-liner Python functions for counting lines of code in an external file of code.
 The code has no external dependencies.
 The code can be in any programming language.
-The examples below uses a file written in Elisp.
+The examples below use a file written in Elisp.
+
 The last example is the solution that you want most of the time.
 The bash function at the bottom can be available everywhere and all of the time.
 
 
-## Count number of non-blank lines
+## Count the number of non-blank lines
 
 Python3 one-liner to count number of non-blank lines follows. 
 This code will count the number of non-blank lines:
@@ -27,20 +28,20 @@ print(sum(1 for line in open("init.el",'r') if line.strip()))
 ```
 [Source](https://stackoverflow.com/questions/10673560/count-number-of-lines-in-a-txt-file-with-python-excluding-blank-lines)
 
-## Count number of commented lines
+## Count the number of commented lines
 
-Python3 one-liner to count number of lines that are commented out follows.
+Python3 one-liner to count the number of lines that are commented out follows.
 The semicolon is used to comment out lines in Emacs Lisp.
-This function will mess those commented lines where the comment has been indented, so this function could be improved.
+This function will miss commented lines that are indented, so this function could be improved.
 
 ```python
 print(sum(1 for line in open('init.el','r') if (line[0] ==  ';') ) )
 ```
 
 
-## Count number of lines with uncommented code
+## Count the number of lines with uncommented code
 
-Python3 one-liner to count number of non-blank lines that are not commented out.
+Python3 one-liner to count the number of non-blank lines that are not commented out.
 This code overlooks block comments and indented  comment lines.
 There is room for improvement.
 
@@ -51,9 +52,9 @@ print(sum(1 for line in open('init.el','r') if ((line.strip()) and (line[0] != '
 ```
 
 
-##  More convenient bash function for last example
+##  More convenient bash function for the last example
 
-You could make this into bash function that is callable from anywhere on any kind of code.
+You could make this into a bash function that is callable from anywhere on any kind of code.
 Beware that you may have to escape the comment character if it is part of the Bash syntax.
 Examples of usage include:
 
@@ -103,5 +104,20 @@ fi
 
 ## Limitations
 
-- Skips blocked comments in special comment environments (e.g., Python triple quoted blocks, html comment blocks, LaTeX comment blocks, comment blocks in C++).
+- Skips blocked comments in special comment environments (e.g., Python triple quoted blocks, HTML comment blocks, LaTeX comment blocks, comment blocks in C++).
 - Skip comments on indented lines
+
+
+## Update History
+
+|Version      | Changes                                         | Date            |
+|:-----------:|:-----------------------------------------------:|:---------------:|
+| Version 0.2 |  Fixed typos in README.md                       | 2024 April 10    |
+
+
+## Sources of funding
+
+- NIH: R01 CA242845
+- NIH: R01 AI088011
+- NIH: P30 CA225520 (PI: R. Mannel)
+- NIH P20GM103640 and P30GM145423 (PI: A. West)  
